@@ -1,10 +1,12 @@
 namespace SeleniumExercise.Tests;
 public class EpamSearchShould : BaseTest
 {
-    TestData _testData = new();
+    readonly TestData _testData = new();
     [Test]
     public void ReturnExpectedJob()
     {
         Pages.SearchPosition(_testData);
+        Pages.SelectLastPosition();
+        Assert.That(Pages.GetJobPostingTitle(), Does.Contain(_testData.DesiredLanguage));
     }
 }
