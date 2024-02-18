@@ -9,9 +9,9 @@ public class CareersPage(IWebDriver driver) : BasePage(driver)
 
     public void SearchPosition(TestData data)
     {
+        SetRemoteCheckbox(data);
         FillLanguageField(data);
         SelectLocation();
-        SetRemoteCheckbox(data);
         SubmitSearchForm();
     }
 
@@ -29,6 +29,9 @@ public class CareersPage(IWebDriver driver) : BasePage(driver)
 
     private void SetRemoteCheckbox(TestData data)
     {
+        IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+        js.ExecuteScript("window.scrollBy(0, 600);");
+        
         _remoteCheckbox =
             _driver.FindElement(By.XPath("//label[@for=\"id-93414a92-598f-316d-b965-9eb0dfefa42d-remote\"]"));
         if (data.Remote)
