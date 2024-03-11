@@ -1,15 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿namespace SeleniumExercise.Utilities;
 
-namespace SeleniumExercise.Utilities;
 public enum Locators
 {
     Xpath,
     CssSelector,
-    ID,
+    Id,
     Name,
     LinkText,
     ClassName,

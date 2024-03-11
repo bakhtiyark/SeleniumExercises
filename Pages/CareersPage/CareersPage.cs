@@ -29,22 +29,19 @@ public class CareersPage(IWebDriver driver) : BasePage(driver)
 
     private void SetRemoteCheckbox(TestData data)
     {
-        IJavaScriptExecutor js = (IJavaScriptExecutor)driver;
+        var js = (IJavaScriptExecutor)_driver;
         js.ExecuteScript("window.scrollBy(0, 600);");
-        
+
         _remoteCheckbox =
             _driver.FindElement(By.XPath("//label[@for=\"id-93414a92-598f-316d-b965-9eb0dfefa42d-remote\"]"));
-        if (data.Remote)
-        {
-            _remoteCheckbox.Click();
-        }
+        if (data.Remote) _remoteCheckbox.Click();
     }
 
     private void SelectLocation()
     {
-        IWebElement locationDropdown = _driver.FindElement(By.CssSelector("div[class=\"recruiting-search__location\"]"));
+        var locationDropdown = _driver.FindElement(By.CssSelector("div[class=\"recruiting-search__location\"]"));
         locationDropdown.Click();
-        IWebElement locationElement = _driver.FindElement(By.XPath("//li[@title=\"All Locations\"]"));
+        var locationElement = _driver.FindElement(By.XPath("//li[@title=\"All Locations\"]"));
         locationElement.Click();
     }
 }

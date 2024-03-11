@@ -5,19 +5,21 @@ using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 namespace SeleniumExercise;
 
 public class HomePage(IWebDriver driver) : BasePage(driver)
 {
-    
     private readonly IWebDriver _driver = driver;
     private IWebElement _careersLink = null!;
     private IWebElement _magnyingGlassIcon = null!;
     private IWebElement _searchFormName = null!;
     private IWebElement _submitButton = null!;
+
     public void OpenCareersPage()
     {
-        _careersLink = _driver.FindElement(By.XPath("//*[@id=\"wrapper\"]/div[2]/div[1]/header/div/div/nav/ul/li[5]/span[1]/a")); 
+        _careersLink =
+            _driver.FindElement(By.XPath("//*[@id=\"wrapper\"]/div[2]/div[1]/header/div/div/nav/ul/li[5]/span[1]/a"));
         _careersLink.Click();
     }
 
@@ -39,9 +41,9 @@ public class HomePage(IWebDriver driver) : BasePage(driver)
         _submitButton = _driver.FindElement(By.CssSelector("span[class=\"bth-text-layer\"]"));
         _submitButton.Click();
     }
+
     public ReadOnlyCollection<IWebElement> GetSearchResult()
     {
         return _driver.FindElements(By.CssSelector("div[class=\"search-results__items\"]"));
     }
-    
 }

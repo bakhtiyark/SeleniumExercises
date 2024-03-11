@@ -1,9 +1,9 @@
-﻿
+﻿namespace SeleniumExercise.Utilities;
 
-namespace SeleniumExercise.Utilities;
 public class Helpers
 {
     private IWebDriver Driver { get; }
+
     public Helpers(IWebDriver driver)
     {
         Driver = driver;
@@ -33,7 +33,7 @@ public class Helpers
         {
             Locators.Xpath => Driver.FindElement(By.XPath(name)),
             Locators.CssSelector => Driver.FindElement(By.CssSelector(name)),
-            Locators.ID => Driver.FindElement(By.Id(name)),
+            Locators.Id => Driver.FindElement(By.Id(name)),
             Locators.Name => Driver.FindElement(By.Name(name)),
             Locators.LinkText => Driver.FindElement(By.LinkText(name)),
             Locators.ClassName => Driver.FindElement(By.ClassName(name)),
@@ -49,7 +49,7 @@ public class Helpers
         {
             Locators.Xpath => Driver.FindElements(By.XPath(name)),
             Locators.CssSelector => Driver.FindElements(By.CssSelector(name)),
-            Locators.ID => Driver.FindElements(By.Id(name)),
+            Locators.Id => Driver.FindElements(By.Id(name)),
             Locators.Name => Driver.FindElements(By.Name(name)),
             Locators.LinkText => Driver.FindElements(By.LinkText(name)),
             Locators.ClassName => Driver.FindElements(By.ClassName(name)),

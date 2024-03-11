@@ -5,34 +5,34 @@ namespace SeleniumExercise;
 internal abstract class Pages : BaseTest
 {
     internal static HomePage Home = null!;
-    private static CareersPage Careers = null!;
-    private static SearchResultsPage Search = null!;
-    private static PositionPage JobPosting = null!;
+    private static CareersPage _careers = null!;
+    private static SearchResultsPage _search = null!;
+    private static PositionPage _jobPosting = null!;
 
     public static void Init(IWebDriver driver)
     {
         Home = new HomePage(driver);
-        Careers = new CareersPage(driver);
-        Search = new SearchResultsPage(driver);
-        JobPosting = new PositionPage(driver);
+        _careers = new CareersPage(driver);
+        _search = new SearchResultsPage(driver);
+        _jobPosting = new PositionPage(driver);
     }
 
     public static void SearchPosition(TestData testData)
     {
-        Home.OpenCareersPage(); 
-        Careers.SearchPosition(testData);
+        Home.OpenCareersPage();
+        _careers.SearchPosition(testData);
     }
 
     public static void SelectLastPosition()
     {
-        Search.SelectLastElement();
+        _search.SelectLastElement();
     }
 
     public static string GetJobPostingTitle()
     {
-        return JobPosting.GetJobTitle();
+        return _jobPosting.GetJobTitle();
     }
-    
+
     public static void SearchForInfo(string str)
     {
         Home.ClickMagnifyingGlassIcon();

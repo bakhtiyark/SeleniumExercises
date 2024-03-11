@@ -1,31 +1,17 @@
 ﻿namespace SeleniumExercise.Core;
+
 public class TestData
 {
-    public string DesiredLocation = "all_locations";
-    public string DesiredLanguage = "Java";
-    public static readonly List<string> SearchItemsList = ["blockchain", "automation", "cloud"];
-    public static readonly string Separator = " "; 
-    public string SearchString = string.Join(Separator, SearchItemsList);
+    public readonly string DesiredLanguage;
+    public readonly bool Remote;
+    public readonly List<string> SearchItemsList;
+    public readonly string SearchString;
 
-    public bool Remote = true;
-    public Dictionary<string, string> Datalayer = new()
+    public TestData()
     {
-        {"quantity", "4"},
-        {"os", "Free: Debian, CentOS, CoreOS, Ubuntu or BYOL (Bring Your Own License)"},
-        {"class", "Regular"},
-        {"series", "N1"},
-        {"instance","n1-standard-8 (vCPUs: 8, RAM: 30GB)"},
-        {"ssd", "2x375 GB"},
-        {"location", "Netherlands (europe-west4)"},
-        {"gpuType", "NVIDIA Tesla V100"},
-        {"gpuCount", "2"},
-        {"cud", "1 Year"},
-        {"estimatedCost", "10,314.90"}
-
-    };
-
-    public string Access(string entry)
-    {
-        return Datalayer[entry];
+        DesiredLanguage = "Java";
+        Remote = true;
+        SearchItemsList = ["blockchain", "automation", "cloud"];
+        SearchString = SearchItemsList.Aggregate("", (current, item) => current + item + " ");
     }
 }
