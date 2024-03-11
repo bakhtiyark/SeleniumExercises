@@ -9,4 +9,15 @@ public class EpamSearchShould : BaseTest
         Pages.SelectLastPosition();
         Assert.That(Pages.GetJobPostingTitle(), Does.Contain(_testData.DesiredLanguage));
     }
+    
+    [Test]
+    public void ContainExpectedStrings()
+    {
+        Pages.SearchForInfo(_testData.SearchString);
+        var result = Pages.Home.GetSearchResult();
+        var everyElementMatches = result.All(element => 
+            TestData.SearchItemsList.Any(str => element.Text.Contains(str)));
+
+        Assert.That(everyElementMatches, Is.True);  
+    }
 }

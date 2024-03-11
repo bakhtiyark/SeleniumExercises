@@ -1,12 +1,13 @@
-﻿namespace SeleniumExercise;
+﻿using System.Collections.ObjectModel;
+
+namespace SeleniumExercise;
 
 internal abstract class Pages : BaseTest
 {
-    private static HomePage Home = null!;
+    internal static HomePage Home = null!;
     private static CareersPage Careers = null!;
     private static SearchResultsPage Search = null!;
     private static PositionPage JobPosting = null!;
-
 
     public static void Init(IWebDriver driver)
     {
@@ -30,5 +31,12 @@ internal abstract class Pages : BaseTest
     public static string GetJobPostingTitle()
     {
         return JobPosting.GetJobTitle();
+    }
+    
+    public static void SearchForInfo(string str)
+    {
+        Home.ClickMagnifyingGlassIcon();
+        Home.FillSearchItem(str);
+        Home.SubmitSearchForm();
     }
 }

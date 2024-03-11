@@ -3,6 +3,10 @@ public class TestData
 {
     public string DesiredLocation = "all_locations";
     public string DesiredLanguage = "Java";
+    public static readonly List<string> SearchItemsList = ["blockchain", "automation", "cloud"];
+    public static readonly string Separator = " "; 
+    public string SearchString = string.Join(Separator, SearchItemsList);
+
     public bool Remote = true;
     public Dictionary<string, string> Datalayer = new()
     {
