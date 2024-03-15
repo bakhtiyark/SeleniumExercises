@@ -1,13 +1,8 @@
 ﻿namespace SeleniumExercise.Utilities;
 
-public class Helpers
+public class Helpers(IWebDriver driver)
 {
-    private IWebDriver Driver { get; }
-
-    public Helpers(IWebDriver driver)
-    {
-        Driver = driver;
-    }
+    private IWebDriver Driver { get; } = driver;
 
     public void HighlightElement(IWebElement element)
     {

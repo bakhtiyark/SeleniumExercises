@@ -1,10 +1,4 @@
-﻿using OpenQA.Selenium;
-using System;
-using System.Collections.Generic;
-using System.Collections.ObjectModel;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.ObjectModel;
 
 namespace SeleniumExercise;
 
@@ -12,7 +6,7 @@ public class HomePage(IWebDriver driver) : BasePage(driver)
 {
     private readonly IWebDriver _driver = driver;
     private IWebElement _careersLink = null!;
-    private IWebElement _magnyingGlassIcon = null!;
+    private IWebElement _magnifyingGlassIcon = null!;
     private IWebElement _searchFormName = null!;
     private IWebElement _submitButton = null!;
 
@@ -25,9 +19,9 @@ public class HomePage(IWebDriver driver) : BasePage(driver)
 
     public void ClickMagnifyingGlassIcon()
     {
-        _magnyingGlassIcon =
+        _magnifyingGlassIcon =
             _driver.FindElement(By.CssSelector("span[class=\"search-icon dark-iconheader-search__search-icon\"]"));
-        _magnyingGlassIcon.Click();
+        _magnifyingGlassIcon.Click();
     }
 
     public void FillSearchItem(string str)
