@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-
-namespace SeleniumExercise;
+﻿namespace SeleniumExercise;
 
 internal abstract class Pages : BaseTest
 {
