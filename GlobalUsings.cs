@@ -10,3 +10,5 @@ global using System.Threading.Tasks;
 global using SeleniumExercise.Core;
 global using SeleniumExtras.WaitHelpers;
 global using SeleniumExercise.Utilities;
+global using Serilog;
+
